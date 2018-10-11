@@ -12,7 +12,7 @@ _CLIENT:             discord.Client = discord.Client()
 @_CLIENT.event
 @coroutine
 def on_message(message: discord.Message):
-    content: str = ''.join(char for char in message.content.lower() if 97 <= ord(char) <= 122)
+    content: str = ''.join(char for char in message.content.lower() if 97 <= ord(char) <= 122 or ord(char) == 32)
     for token in content.split(' '):
         if token == 'lul':
             yield from _CLIENT.send_message(message.channel, 'lol*')
