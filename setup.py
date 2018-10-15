@@ -11,7 +11,7 @@ setup(
     packages=find_packages(),
     entry_points={
         'console_scripts': [
-            'meme-machine-bot=meme_machine:run_lul_check',
+            'meme-machine-bot=meme_machine:main',
         ],
     }
 )
