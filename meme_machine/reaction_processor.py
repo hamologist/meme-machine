@@ -46,11 +46,11 @@ async def _handle_remove(_: discord.Message, match: Match[str]):
 
 
 async def _handle_display(message: discord.Message, _: Match[str]):
-    await CLIENT.send_message(message.channel, dumps(_REACTION_STORE, sort_keys=True, indent=4))
+    await message.channel.send(message, dumps(_REACTION_STORE, sort_keys=True, indent=4))
 
 
 async def _handle_help(message: discord.Message, _: Match[str]):
-    await CLIENT.send_message(message.channel, _REACTION_COMMAND_HELP)
+    await message.channel.send(_REACTION_COMMAND_HELP)
 
 
 async def on_message(message: discord.Message):
@@ -66,7 +66,7 @@ async def on_message(message: discord.Message):
         reaction = _REACTION_STORE.get(normalize(content))
 
         if reaction:
-            await CLIENT.send_message(message.channel, reaction)
+            await message.channel.send(reaction)
 
 
 _REACTION_STORE:       Dict[str, str] = {}

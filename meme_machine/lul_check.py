@@ -9,4 +9,4 @@ async def on_message(message: discord.Message):
                            if 97 <= ord(char) <= 122 or ord(char) == 32)
     for token in content.split(' '):
         if token == 'lul':
-            await CLIENT.send_message(message.channel, 'lol*')
+            await message.channel.send('lol*')
