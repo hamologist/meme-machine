@@ -6,7 +6,8 @@ setup(
     description='Think of all the activities!',
     license='MIT',
     install_requires=[
-        'discord.py==1.4.1'
+        'discord.py==1.4.1',
+        'requests==2.25.1'
     ],
     packages=find_packages(),
     entry_points={

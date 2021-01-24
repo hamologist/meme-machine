@@ -2,7 +2,7 @@ import logging
 from os import getenv
 
 from meme_machine.client import CLIENT, ON_MESSAGE_QUEUE
-from meme_machine import lul_check, reaction_processor
+from meme_machine import emojify, lul_check, reaction_processor
 
 __MEME_MACHINE_TOKEN: str = getenv('MEME_MACHINE_TOKEN')
 LOGGER:               logging.Logger = logging.getLogger(__name__)
@@ -17,6 +17,7 @@ def main():
 
     ON_MESSAGE_QUEUE.append(lul_check.on_message)
     ON_MESSAGE_QUEUE.append(reaction_processor.on_message)
+    ON_MESSAGE_QUEUE.append(emojify.on_message)
     CLIENT.run(__MEME_MACHINE_TOKEN)
     CLIENT.close()
 
